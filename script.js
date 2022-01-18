@@ -27,11 +27,6 @@ function operate(operator, a, b) {
 }
 
 function addDigitToCalculation() {
-  const leftSideNumber = document.querySelector("#left-side");
-  const operator = document.querySelector("#calc-operator");
-  const rigthSideNumber = document.querySelector("#right-side");
-  const display = document.querySelector(".calculator-display");
-
   if (
     !leftSideNumber.textContent ||
     (leftSideNumber.textContent.length < 9 && !operator.textContent)
@@ -48,35 +43,34 @@ function addDigitToCalculation() {
 }
 
 function addOperatorToCalculation() {
-  const leftSideNumber = document.querySelector("#left-side");
-  const operator = document.querySelector("#calc-operator");
-  const rigthSideNumber = document.querySelector("#right-side");
-  const operators = document.querySelectorAll(".operator");
-
   if (!operator.textContent && leftSideNumber.textContent) {
     operator.textContent = this.textContent;
-    operators.forEach(op => op.classList.remove("active"));
+    operators.forEach((op) => op.classList.remove("active"));
     this.classList.add("active");
   } else if (leftSideNumber.textContent && rigthSideNumber.textContent) {
     doCalculation();
     operator.textContent = this.textContent;
-    operators.forEach(op => op.classList.remove("active"));
+    operators.forEach((op) => op.classList.remove("active"));
     this.classList.add("active");
   }
 }
 
 function doCalculation() {
-  const leftSideNumber = document.querySelector("#left-side");
-  const operator = document.querySelector("#calc-operator");
-  const rigthSideNumber = document.querySelector("#right-side");
-  const display = document.querySelector(".calculator-display");
-
-  if (!(leftSideNumber.textContent && rigthSideNumber.textContent && operator.textContent)) {
+  if (
+    !(
+      leftSideNumber.textContent &&
+      rigthSideNumber.textContent &&
+      operator.textContent
+    )
+  ) {
     return;
   }
 
-  let result = operate(operator.textContent, 
-    leftSideNumber.textContent, rigthSideNumber.textContent);
+  let result = operate(
+    operator.textContent,
+    leftSideNumber.textContent,
+    rigthSideNumber.textContent
+  );
   result = Math.round(result * 1000) / 1000;
   clearCalculation();
   leftSideNumber.textContent = result;
@@ -84,18 +78,19 @@ function doCalculation() {
 }
 
 function clearCalculation() {
-  const leftSideNumber = document.querySelector("#left-side");
-  const operator = document.querySelector("#calc-operator");
-  const rigthSideNumber = document.querySelector("#right-side");
-  const display = document.querySelector(".calculator-display");
   const operators = document.querySelectorAll(".operator");
-  operators.forEach(op => op.classList.remove("active"));
+  operators.forEach((op) => op.classList.remove("active"));
 
   display.textContent = "";
   leftSideNumber.textContent = "";
   operator.textContent = "";
   rigthSideNumber.textContent = "";
 }
+
+const leftSideNumber = document.querySelector("#left-side");
+const operator = document.querySelector("#calc-operator");
+const rigthSideNumber = document.querySelector("#right-side");
+const display = document.querySelector(".calculator-display");
 
 const digits = document.querySelectorAll(".digit");
 digits.forEach((digit) =>
