@@ -1,5 +1,5 @@
 * {
-    font-family: "Verdana", sans-serif;
+  font-family: "Verdana", sans-serif;
 }
 
 body {
@@ -68,5 +68,5 @@ body {
 }
 
 .operator.active {
-    background-color: #d3d3d3;
+  background-color: #d3d3d3;
 }

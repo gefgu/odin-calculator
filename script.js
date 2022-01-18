@@ -71,7 +71,7 @@ function doCalculation() {
     leftSideNumber.textContent,
     rigthSideNumber.textContent
   );
-  result = Math.round(result * 1000) / 1000;
+  result = result.toFixed(3);
   clearCalculation();
   leftSideNumber.textContent = result;
   display.textContent = result;
