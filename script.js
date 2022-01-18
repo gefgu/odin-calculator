@@ -27,19 +27,16 @@ function operate(operator, a, b) {
 }
 
 function addDigitToCalculation() {
-  if (
-    !leftSideNumber.textContent ||
-    (leftSideNumber.textContent.length < 9 && !operator.textContent)
-  ) {
-    leftSideNumber.textContent += this.textContent;
-    display.textContent += this.textContent;
+  const digitToAdd = this.textContent;
+  if (!operator.textContent) {
+    leftSideNumber.textContent = +(leftSideNumber.textContent + digitToAdd);
   } else if (operator.textContent && !rigthSideNumber.textContent) {
-    rigthSideNumber.textContent += this.textContent;
-    display.textContent = this.textContent;
-  } else if (operator.textContent && rigthSideNumber.textContent.length < 9) {
-    rigthSideNumber.textContent += this.textContent;
-    display.textContent += this.textContent;
+    display.textContent = "";
+    rigthSideNumber.textContent = +digitToAdd;
+  } else if (operator.textContent && rigthSideNumber.textContent) {
+    rigthSideNumber.textContent = +(rigthSideNumber.textContent + digitToAdd);
   }
+  display.textContent = +(display.textContent + digitToAdd);
 }
 
 function addOperatorToCalculation() {
@@ -88,7 +85,7 @@ function clearCalculation() {
 }
 
 function addFloatingPoint() {
-  if(display.textContent.includes(".")) {
+  if (display.textContent.includes(".")) {
     return;
   }
   display.textContent += ".";
