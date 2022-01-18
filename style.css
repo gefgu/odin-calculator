@@ -20,6 +20,11 @@ body {
 .calculator-display {
   flex: 1;
   border: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 64px;
+  padding: 0;
 }
 
 .calculator-buttons {
@@ -52,6 +57,8 @@ body {
   flex: 3;
 }
 
-.hidden {
-    visibility: hidden;
+.hidden-calc {
+  visibility: hidden;
+  width: 0;
+  overflow: hidden;
 }
