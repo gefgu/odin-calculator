@@ -62,3 +62,7 @@ body {
   width: 0;
   overflow: hidden;
 }
+
+.operator.active {
+    background-color: lightslategray;
+}
