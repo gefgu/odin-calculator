@@ -53,7 +53,7 @@ function addOperatorToCalculation() {
   const rigthSideNumber = document.querySelector("#right-side");
   const operators = document.querySelectorAll(".operator");
 
-  if (!operator.textContent && !leftSideNumber.textContent) {
+  if (!operator.textContent && leftSideNumber.textContent) {
     operator.textContent = this.textContent;
     operators.forEach(op => op.classList.remove("active"));
     this.classList.add("active");
