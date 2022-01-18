@@ -97,6 +97,20 @@ function addFloatingPoint() {
   }
 }
 
+function removeLastDigit() {
+  // remove from display
+  // check for operator
+  // if there is operator
+  // remove from right side
+  // remove from left side
+  display.textContent = Math.floor(+display.textContent / 10);
+  if (operator.textContent) {
+    rigthSideNumber.textContent = Math.floor(+rigthSideNumber.textContent / 10);
+  } else {
+    leftSideNumber.textContent = Math.floor(+leftSideNumber.textContent / 10);
+  }
+}
+
 const leftSideNumber = document.querySelector("#left-side");
 const operator = document.querySelector("#calc-operator");
 const rigthSideNumber = document.querySelector("#right-side");
@@ -120,3 +134,6 @@ clearButton.addEventListener("click", clearCalculation);
 
 const pointButton = document.querySelector("#floating-point");
 pointButton.addEventListener("click", addFloatingPoint);
+
+const backspaceButton = document.querySelector("#backspace");
+backspaceButton.addEventListener("click", removeLastDigit);
