@@ -98,11 +98,6 @@ function addFloatingPoint() {
 }
 
 function removeLastDigit() {
-  // remove from display
-  // check for operator
-  // if there is operator
-  // remove from right side
-  // remove from left side
   display.textContent = Math.floor(+display.textContent / 10);
   if (operator.textContent) {
     rigthSideNumber.textContent = Math.floor(+rigthSideNumber.textContent / 10);
