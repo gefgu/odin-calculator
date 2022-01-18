@@ -32,7 +32,10 @@ function addDigitToCalculation() {
   const rigthSideNumber = document.querySelector("#right-side");
   const display = document.querySelector(".calculator-display");
 
-  if(!leftSideNumber.textContent || !operator.textContent) {
+  if (
+    !leftSideNumber.textContent ||
+    (leftSideNumber.textContent.length < 9 && !operator.textContent)
+  ) {
     leftSideNumber.textContent += this.textContent;
     display.textContent += this.textContent;
   } else {
@@ -41,4 +44,6 @@ function addDigitToCalculation() {
 }
 
 const digits = document.querySelectorAll(".digit");
-digits.forEach(digit => digit.addEventListener("click", addDigitToCalculation))
+digits.forEach((digit) =>
+  digit.addEventListener("click", addDigitToCalculation)
+);
