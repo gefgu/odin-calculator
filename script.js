@@ -33,12 +33,12 @@ function addDigitToCalculation() {
   ) {
     leftSideNumber.textContent += this.textContent;
     display.textContent += this.textContent;
-  } else if (!rigthSideNumber.textContent) {
-    display.textContent = this.textContent;
-    rigthSideNumber.textContent = this.textContent;
-  } else {
-    display.textContent += this.textContent;
+  } else if (operator.textContent && !rigthSideNumber.textContent) {
     rigthSideNumber.textContent += this.textContent;
+    display.textContent = this.textContent;
+  } else if (operator.textContent && rigthSideNumber.textContent.length < 9) {
+    rigthSideNumber.textContent += this.textContent;
+    display.textContent += this.textContent;
   }
 }
 
