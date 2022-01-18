@@ -27,16 +27,17 @@ function operate(operator, a, b) {
 }
 
 function addDigitToCalculation() {
-  const digitToAdd = this.textContent;
+  const digitToAdd = +this.textContent;
   if (!operator.textContent) {
-    leftSideNumber.textContent = +(leftSideNumber.textContent + digitToAdd);
+    leftSideNumber.textContent = +leftSideNumber.textContent * 10 + digitToAdd;
   } else if (operator.textContent && !rigthSideNumber.textContent) {
     display.textContent = "";
     rigthSideNumber.textContent = +digitToAdd;
   } else if (operator.textContent && rigthSideNumber.textContent) {
-    rigthSideNumber.textContent = +(rigthSideNumber.textContent + digitToAdd);
+    rigthSideNumber.textContent =
+      +rigthSideNumber.textContent * 10 + digitToAdd;
   }
-  display.textContent = +(display.textContent + digitToAdd);
+  display.textContent = +display.textContent * 10 + digitToAdd;
 }
 
 function addOperatorToCalculation() {
