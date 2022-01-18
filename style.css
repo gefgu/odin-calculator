@@ -7,8 +7,8 @@ body {
 }
 
 .calculator {
-  height: 640px;
-  width: 640px;
+  height: 512px;
+  width: 384px;
   border: 1px solid lightgrey;
   background-color: #f8f9fa;
   padding: 0px;
@@ -18,61 +18,36 @@ body {
 }
 
 .calculator-display {
-  flex: 2;
+  flex: 1;
   border: 1px solid black;
 }
 
 .calculator-buttons {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex: 1;
+  flex-direction: column;
+  flex: 4;
   gap: 4px;
 }
 
 .calculator-buttons button {
   padding: 4px 0;
-  font-size: 16px;
+  font-size: 32px;
 }
 
-.calculator-math {
+.calculator-buttons div {
   display: flex;
-  flex-direction: column;
-  width: 50%;
+  flex: 1;
   gap: 4px;
 }
 
-.calculator-math div {
-  display: flex;
-  gap: 4px;
-}
-
-.calculator-math button {
+.calculator-buttons button {
   flex: 1;
 }
 
-.calculator-math #zero {
+.calculator-buttons #zero {
   flex: 3;
 }
 
-.calculator-executions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 15%;
-  height: 75%;
-}
-
-.calculator-display {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.calculator-display > div {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 16px;
-  border: 1px solid black;
-  font-size: 18px;
+.calculator-buttons #clear {
+  flex: 3;
 }
