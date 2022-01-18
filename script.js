@@ -51,10 +51,14 @@ function addOperatorToCalculation() {
   const leftSideNumber = document.querySelector("#left-side");
   const operator = document.querySelector("#calc-operator");
   const rigthSideNumber = document.querySelector("#right-side");
-  const display = document.querySelector(".calculator-display");
   const operators = document.querySelectorAll(".operator");
 
-  if (!operator.textContent) {
+  if (!operator.textContent && !leftSideNumber.textContent) {
+    operator.textContent = this.textContent;
+    operators.forEach(op => op.classList.remove("active"));
+    this.classList.add("active");
+  } else if (leftSideNumber.textContent && rigthSideNumber.textContent) {
+    doCalculation();
     operator.textContent = this.textContent;
     operators.forEach(op => op.classList.remove("active"));
     this.classList.add("active");
