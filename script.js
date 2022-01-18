@@ -54,6 +54,31 @@ function addOperatorToCalculation() {
   }
 }
 
+function doCalculation() {
+  const leftSideNumber = document.querySelector("#left-side");
+  const operator = document.querySelector("#calc-operator");
+  const rigthSideNumber = document.querySelector("#right-side");
+  const display = document.querySelector(".calculator-display");
+
+  const result = operate(operator.textContent, 
+    leftSideNumber.textContent, rigthSideNumber.textContent);
+  clearCalculation();
+  leftSideNumber.textContent = result;
+  display.textContent = result;
+}
+
+function clearCalculation() {
+  const leftSideNumber = document.querySelector("#left-side");
+  const operator = document.querySelector("#calc-operator");
+  const rigthSideNumber = document.querySelector("#right-side");
+  const display = document.querySelector(".calculator-display");
+
+  display.textContent = "";
+  leftSideNumber.textContent = "";
+  operator.textContent = "";
+  rigthSideNumber.textContent = "";
+}
+
 const digits = document.querySelectorAll(".digit");
 digits.forEach((digit) =>
   digit.addEventListener("click", addDigitToCalculation)
@@ -63,3 +88,9 @@ const operators = document.querySelectorAll(".operator");
 operators.forEach((operator) =>
   operator.addEventListener("click", addOperatorToCalculation)
 );
+
+const equalButton = document.querySelector("#equal-sign");
+equalButton.addEventListener("click", doCalculation);
+
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", clearCalculation);
