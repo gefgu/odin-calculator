@@ -71,8 +71,9 @@ function doCalculation() {
   const rigthSideNumber = document.querySelector("#right-side");
   const display = document.querySelector(".calculator-display");
 
-  const result = operate(operator.textContent, 
+  let result = operate(operator.textContent, 
     leftSideNumber.textContent, rigthSideNumber.textContent);
+  result = Math.round(result * 1000) / 1000;
   clearCalculation();
   leftSideNumber.textContent = result;
   display.textContent = result;
