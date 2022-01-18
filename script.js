@@ -3,7 +3,7 @@ function add(...values) {
 }
 
 function subtract(a, b) {
-  return a - b;
+  return +a - +b;
 }
 
 function multiply(...values) {
@@ -11,7 +11,7 @@ function multiply(...values) {
 }
 
 function divide(a, b) {
-  return a / b;
+  return +a / +b;
 }
 
 function operate(operator, a, b) {
@@ -87,6 +87,18 @@ function clearCalculation() {
   rigthSideNumber.textContent = "";
 }
 
+function addFloatingPoint() {
+  if(display.textContent.includes(".")) {
+    return;
+  }
+  display.textContent += ".";
+  if (operator.textContent) {
+    rigthSideNumber.textContent += ".";
+  } else {
+    leftSideNumber.textContent += ".";
+  }
+}
+
 const leftSideNumber = document.querySelector("#left-side");
 const operator = document.querySelector("#calc-operator");
 const rigthSideNumber = document.querySelector("#right-side");
@@ -107,3 +119,6 @@ equalButton.addEventListener("click", doCalculation);
 
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", clearCalculation);
+
+const pointButton = document.querySelector("#floating-point");
+pointButton.addEventListener("click", addFloatingPoint);
