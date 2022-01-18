@@ -51,3 +51,7 @@ body {
 .calculator-buttons #clear {
   flex: 3;
 }
+
+.hidden {
+    visibility: hidden;
+}
