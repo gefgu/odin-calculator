@@ -28,7 +28,7 @@ function operate(operator, a, b) {
 
 function addDigitToCalculation() {
   const leftSideNumber = document.querySelector("#left-side");
-  const operator = document.querySelectorAll("#calc-operator");
+  const operator = document.querySelector("#calc-operator");
   const rigthSideNumber = document.querySelector("#right-side");
   const display = document.querySelector(".calculator-display");
 
@@ -38,12 +38,28 @@ function addDigitToCalculation() {
   ) {
     leftSideNumber.textContent += this.textContent;
     display.textContent += this.textContent;
+  } else if (!rigthSideNumber.textContent) {
+    display.textContent = this.textContent;
+    rigthSideNumber.textContent = this.textContent;
   } else {
+    display.textContent += this.textContent;
     rigthSideNumber.textContent += this.textContent;
+  }
+}
+
+function addOperatorToCalculation() {
+  const operator = document.querySelector("#calc-operator");
+  if (!operator.textContent) {
+    operator.textContent = this.textContent;
   }
 }
 
 const digits = document.querySelectorAll(".digit");
 digits.forEach((digit) =>
   digit.addEventListener("click", addDigitToCalculation)
+);
+
+const operators = document.querySelectorAll(".operator");
+operators.forEach((operator) =>
+  operator.addEventListener("click", addOperatorToCalculation)
 );
