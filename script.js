@@ -70,6 +70,10 @@ function doCalculation() {
   );
   result = Math.round(result * 1000) / 1000;
   clearCalculation();
+  if (result === Infinity) {
+    alert("Division by 0 isn't allowed");
+    result = "";
+  }
   leftSideNumber.textContent = result;
   display.textContent = result;
 }
