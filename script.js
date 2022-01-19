@@ -27,17 +27,32 @@ function operate(operator, a, b) {
 }
 
 function addDigitToCalculation() {
-  const digitToAdd = +this.textContent;
-  if (!operator.textContent) {
-    leftSideNumber.textContent = +leftSideNumber.textContent * 10 + digitToAdd;
-  } else if (operator.textContent && !rigthSideNumber.textContent) {
-    display.textContent = "";
-    rigthSideNumber.textContent = +digitToAdd;
-  } else if (operator.textContent && rigthSideNumber.textContent) {
-    rigthSideNumber.textContent =
-      +rigthSideNumber.textContent * 10 + digitToAdd;
+  let digitToAdd = this.textContent;
+  if (display.textContent.includes("e")) {
+    digitToAdd = +digitToAdd;
+    if (!operator.textContent) {
+      leftSideNumber.textContent =
+        +leftSideNumber.textContent * 10 + digitToAdd;
+    } else if (operator.textContent && !rigthSideNumber.textContent) {
+      display.textContent = "";
+      rigthSideNumber.textContent = +digitToAdd;
+    } else if (operator.textContent && rigthSideNumber.textContent) {
+      rigthSideNumber.textContent =
+        +rigthSideNumber.textContent * 10 + digitToAdd;
+    }
+    display.textContent = +display.textContent * 10 + digitToAdd;
+  } else {
+    if (!operator.textContent) {
+      leftSideNumber.textContent = +(leftSideNumber.textContent + digitToAdd);
+    } else if (operator.textContent && !rigthSideNumber.textContent) {
+      display.textContent = "";
+      rigthSideNumber.textContent = +digitToAdd;
+    } else if (operator.textContent && rigthSideNumber.textContent) {
+      rigthSideNumber.textContent =
+        +(rigthSideNumber.textContent + digitToAdd);
+    }
+    display.textContent = +(display.textContent + digitToAdd);
   }
-  display.textContent = +display.textContent * 10 + digitToAdd;
 }
 
 function addOperatorToCalculation() {
