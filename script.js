@@ -28,30 +28,15 @@ function operate(operator, a, b) {
 
 function addDigitToCalculation() {
   let digitToAdd = this.textContent;
-  if (display.textContent.includes("e")) {
-    digitToAdd = +digitToAdd;
-    if (!operator.textContent) {
-      leftSideNumber.textContent =
-        +leftSideNumber.textContent * 10 + digitToAdd;
-    } else if (operator.textContent && !rigthSideNumber.textContent) {
-      display.textContent = "";
-      rigthSideNumber.textContent = +digitToAdd;
-    } else if (operator.textContent && rigthSideNumber.textContent) {
-      rigthSideNumber.textContent =
-        +rigthSideNumber.textContent * 10 + digitToAdd;
-    }
-    display.textContent = +display.textContent * 10 + digitToAdd;
-  } else {
-    if (!operator.textContent) {
-      leftSideNumber.textContent = +(leftSideNumber.textContent + digitToAdd);
-    } else if (operator.textContent && !rigthSideNumber.textContent) {
-      display.textContent = "";
-      rigthSideNumber.textContent = +digitToAdd;
-    } else if (operator.textContent && rigthSideNumber.textContent) {
-      rigthSideNumber.textContent = +(rigthSideNumber.textContent + digitToAdd);
-    }
-    display.textContent = +(display.textContent + digitToAdd);
+  if (!operator.textContent) {
+    leftSideNumber.textContent = leftSideNumber.textContent + digitToAdd;
+  } else if (operator.textContent && !rigthSideNumber.textContent) {
+    display.textContent = "";
+    rigthSideNumber.textContent = +digitToAdd;
+  } else if (operator.textContent && rigthSideNumber.textContent) {
+    rigthSideNumber.textContent = rigthSideNumber.textContent + digitToAdd;
   }
+  display.textContent = display.textContent + digitToAdd;
 }
 
 function addOperatorToCalculation() {
@@ -112,7 +97,6 @@ function addFloatingPoint() {
 }
 
 function removeLastDigit() {
-  // if it includes e
   if (display.textContent.includes("e")) {
     display.textContent = Math.floor(+display.textContent / 10);
     if (operator.textContent) {
@@ -130,8 +114,6 @@ function removeLastDigit() {
       leftSideNumber.textContent = +leftSideNumber.textContent.slice(0, -1)
     }
   }
-  // display remove last string
-  // check for operator
 }
 
 const leftSideNumber = document.querySelector("#left-side");
