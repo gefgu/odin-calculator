@@ -48,8 +48,7 @@ function addDigitToCalculation() {
       display.textContent = "";
       rigthSideNumber.textContent = +digitToAdd;
     } else if (operator.textContent && rigthSideNumber.textContent) {
-      rigthSideNumber.textContent =
-        +(rigthSideNumber.textContent + digitToAdd);
+      rigthSideNumber.textContent = +(rigthSideNumber.textContent + digitToAdd);
     }
     display.textContent = +(display.textContent + digitToAdd);
   }
@@ -113,12 +112,26 @@ function addFloatingPoint() {
 }
 
 function removeLastDigit() {
-  display.textContent = Math.floor(+display.textContent / 10);
-  if (operator.textContent) {
-    rigthSideNumber.textContent = Math.floor(+rigthSideNumber.textContent / 10);
+  // if it includes e
+  if (display.textContent.includes("e")) {
+    display.textContent = Math.floor(+display.textContent / 10);
+    if (operator.textContent) {
+      rigthSideNumber.textContent = Math.floor(
+        +rigthSideNumber.textContent / 10
+      );
+    } else {
+      leftSideNumber.textContent = Math.floor(+leftSideNumber.textContent / 10);
+    }
   } else {
-    leftSideNumber.textContent = Math.floor(+leftSideNumber.textContent / 10);
+    display.textContent = +display.textContent.slice(0, -1);
+    if(operator.textContent) {
+      rigthSideNumber.textContent = +rigthSideNumber.textContent.slice(0, -1)
+    } else {
+      leftSideNumber.textContent = +leftSideNumber.textContent.slice(0, -1)
+    }
   }
+  // display remove last string
+  // check for operator
 }
 
 const leftSideNumber = document.querySelector("#left-side");
