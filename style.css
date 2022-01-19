@@ -47,6 +47,7 @@ body {
 .calculator-buttons button {
   font-size: 32px;
   border-radius: 16px;
+  margin: 4px;
 }
 
 .calculator-buttons div {
